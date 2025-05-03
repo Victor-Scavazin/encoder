@@ -3,20 +3,26 @@ spring:
     virtual:
       enabled: true
   datasource:
-    url: jdbc:postgresql://${DB_HOSTNAME}:5432/core?user=api&password=d4taovers33r
+    url: jdbc:postgresql://localhost:5432/enconder?user=api&password=09120912
     driverClassName: org.postgresql.Driver
     hikari:
       maximum-pool-size: 60
       minimum-idle: 10
+    jpa:
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate:
+        ddl-auto: update
   main:
     allow-circular-references: true
   flyway:
     placeholderReplacement: false
-    #  jackson:
-    #    default-property-inclusion: non_null
-    #    deserialization:
-    #      USE_LONG_FOR_INTS: true
-    #      FAIL_ON_READING_DUP_TREE_KEY: true
+    jackson:
+      default-property-inclusion: non_null
+      deserialization:
+        USE_LONG_FOR_INTS: true
+        FAIL_ON_READING_DUP_TREE_KEY: true
 server:
   port: 8080
   compression:
