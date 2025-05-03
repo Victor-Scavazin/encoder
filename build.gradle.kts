@@ -26,6 +26,8 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	implementation(platform("com.konghq:unirest-java-bom:4.4.5"))
+	implementation("com.konghq:unirest-java-core")
 }
 
 kotlin {
