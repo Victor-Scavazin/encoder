@@ -1,0 +1,30 @@
+spring:
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: jdbc:postgresql://${DB_HOSTNAME}:5432/core?user=api&password=d4taovers33r
+    driverClassName: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 60
+      minimum-idle: 10
+  main:
+    allow-circular-references: true
+  flyway:
+    placeholderReplacement: false
+    #  jackson:
+    #    default-property-inclusion: non_null
+    #    deserialization:
+    #      USE_LONG_FOR_INTS: true
+    #      FAIL_ON_READING_DUP_TREE_KEY: true
+server:
+  port: 8080
+  compression:
+    enabled: true
+#  tomcat:
+#    # At least mar-max-requests. This matters for clients using keep-alive.
+#    max-connections: 2000
+#    # Always less than hikari.max-pool-size to avoid connection starvation (requests may use
+#    # more than one database connection simultaneously).
+#    # Custom Mar property because we cannot use tomcat's max threads with a virtual thread executor.
+#    mar-max-requests: 45
